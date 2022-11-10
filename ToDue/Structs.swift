@@ -7,6 +7,12 @@
 
 import Foundation
 
+// This is event struct, not finailzed, can be
+// modified to make it more developer friendly
+// One major concern is to make it easy for calculating
+// time remaing. Maybe we can use some API like Date(),
+// DateComponents() or DateFormatter()...
+
 struct event {
     var year: Int
     var month: Int

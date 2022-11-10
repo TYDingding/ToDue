@@ -15,6 +15,8 @@
 		CD0FC16B291C6F630010026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0FC16A291C6F630010026F /* Assets.xcassets */; };
 		CD0FC16E291C6F630010026F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0FC16C291C6F630010026F /* LaunchScreen.storyboard */; };
 		CD0FC178291CCF6B0010026F /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC177291CCF6B0010026F /* Structs.swift */; };
+		CD0FC17C291D73350010026F /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC17B291D73350010026F /* EventTableViewCell.swift */; };
+		CD0FC17E291D76FA0010026F /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC17D291D76FA0010026F /* DisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		CD0FC16D291C6F630010026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD0FC16F291C6F630010026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CD0FC177291CCF6B0010026F /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Structs.swift; path = ToDue/Structs.swift; sourceTree = "<group>"; };
+		CD0FC17B291D73350010026F /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
+		CD0FC17D291D76FA0010026F /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,7 +69,9 @@
 				CD0FC161291C6F620010026F /* AppDelegate.swift */,
 				CD0FC163291C6F620010026F /* SceneDelegate.swift */,
 				CD0FC165291C6F620010026F /* ViewController.swift */,
+				CD0FC17B291D73350010026F /* EventTableViewCell.swift */,
 				CD0FC167291C6F620010026F /* Main.storyboard */,
+				CD0FC17D291D76FA0010026F /* DisplayView.swift */,
 				CD0FC16A291C6F630010026F /* Assets.xcassets */,
 				CD0FC16C291C6F630010026F /* LaunchScreen.storyboard */,
 				CD0FC16F291C6F630010026F /* Info.plist */,
@@ -144,6 +150,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0FC17C291D73350010026F /* EventTableViewCell.swift in Sources */,
+				CD0FC17E291D76FA0010026F /* DisplayView.swift in Sources */,
 				CD0FC166291C6F620010026F /* ViewController.swift in Sources */,
 				CD0FC162291C6F620010026F /* AppDelegate.swift in Sources */,
 				CD0FC178291CCF6B0010026F /* Structs.swift in Sources */,

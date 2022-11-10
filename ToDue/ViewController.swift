@@ -7,28 +7,29 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate {
+class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UISearchBarDelegate {
     
     
     @IBAction func addReminders(_ sender: Any) {
     }
     
+    @IBOutlet weak var collectionView: UICollectionView!
     var theData:[event] = []
-    @IBOutlet weak var tableView: UITableView!
+    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        setupTableView()
+        setupCollectionView()
         
         DispatchQueue.global(qos: .userInitiated).async {
             
-            self.fetchDataForTableView()
+            self.fetchDataForcollectionView()
             
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.collectionView.reloadData()
             }
         }
 
@@ -36,24 +37,23 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 
     //functions
     
-    //setupTableView
-    func setupTableView() {
-        tableView.dataSource = self
-        tableView.delegate = self
+    //setupCollectionView
+    func setupCollectionView() {
+        collectionView.dataSource = self
+        collectionView.delegate = self
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
     }
     
-    //fetchDataForTableView
-    func fetchDataForTableView(){
+    //fetchDataForcollectionView
+    func fetchDataForcollectionView(){
         // Currently only for demo, no database query
         let demoEvent = event(year: 2022, month: 11, day: 11, weekDay: "Friday", title: "CSE599 HW3")
         theData.append(demoEvent)
     }
     
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    func collectionView(_ collectionView: UIcollectionView, didSelectRowAt indexPath: IndexPath) {
 //
 //        //do some initialization
 //
@@ -68,22 +68,14 @@ class ViewController: UIViewController,UITableViewDataSource,UITableViewDelegate
 //
 //    }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return theData.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
-
-        cell.textLabel!.text = theData[indexPath.row].weekDay
-        
-        cell.detailTextLabel?.text = theData[indexPath.row].title
-        
-        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! EventCollectionViewCell
+        cell.title.text = theData[indexPath.row].title
         return cell
-
-        
     }
 
 }
