@@ -12,7 +12,6 @@
         <!--Reminders-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -64,6 +63,7 @@
                         <outlet property="table" destination="VlK-B8-Qu6" id="pd8-4O-Hh7"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vcs-LB-AI4">
                     <rect key="frame" x="0.0" y="0.0" width="390" height="722"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -122,7 +122,7 @@
         <!--Add View Controller-->
         <scene sceneID="C9D-HG-n1h">
             <objects>
-                <viewController storyboardIdentifier="add" id="L4j-1i-whS" customClass="AddViewController" customModule="MyReminders" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="add" id="L4j-1i-whS" customClass="AddViewController" customModule="ToDue" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ii0-dB-UOK">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
