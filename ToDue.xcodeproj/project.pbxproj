@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04A40AD02921E80400EC0E23 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40ACE2921E80400EC0E23 /* CustomTableViewCell.swift */; };
+		04A40AD12921E80400EC0E23 /* CustomTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04A40ACF2921E80400EC0E23 /* CustomTableViewCell.xib */; };
+		04A40AD32921F0F600EC0E23 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40AD22921F0F600EC0E23 /* DetailViewController.swift */; };
+		04A40AD52921F2BC00EC0E23 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40AD42921F2BC00EC0E23 /* RadioButton.swift */; };
+		04A40AD929232A3500EC0E23 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A40AD829232A3500EC0E23 /* Utilities.swift */; };
 		CD0FC162291C6F620010026F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC161291C6F620010026F /* AppDelegate.swift */; };
 		CD0FC164291C6F620010026F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC163291C6F620010026F /* SceneDelegate.swift */; };
 		CD0FC166291C6F620010026F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC165291C6F620010026F /* ViewController.swift */; };
@@ -14,11 +19,15 @@
 		CD0FC16B291C6F630010026F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD0FC16A291C6F630010026F /* Assets.xcassets */; };
 		CD0FC16E291C6F630010026F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD0FC16C291C6F630010026F /* LaunchScreen.storyboard */; };
 		CD0FC178291CCF6B0010026F /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC177291CCF6B0010026F /* Structs.swift */; };
-		CD0FC17C291D73350010026F /* EventCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC17B291D73350010026F /* EventCollectionViewCell.swift */; };
 		CD0FC17E291D76FA0010026F /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0FC17D291D76FA0010026F /* DisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04A40ACE2921E80400EC0E23 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		04A40ACF2921E80400EC0E23 /* CustomTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomTableViewCell.xib; sourceTree = "<group>"; };
+		04A40AD22921F0F600EC0E23 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		04A40AD42921F2BC00EC0E23 /* RadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadioButton.swift; sourceTree = "<group>"; };
+		04A40AD829232A3500EC0E23 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		CD0FC15E291C6F620010026F /* ToDue.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDue.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD0FC161291C6F620010026F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD0FC163291C6F620010026F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,8 +36,7 @@
 		CD0FC16A291C6F630010026F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD0FC16D291C6F630010026F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD0FC16F291C6F630010026F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD0FC177291CCF6B0010026F /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Structs.swift; path = ToDue/Structs.swift; sourceTree = "<group>"; };
-		CD0FC17B291D73350010026F /* EventCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventCollectionViewCell.swift; sourceTree = "<group>"; };
+		CD0FC177291CCF6B0010026F /* Structs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		CD0FC17D291D76FA0010026F /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -46,7 +54,6 @@
 		CD0FC155291C6F620010026F = {
 			isa = PBXGroup;
 			children = (
-				CD0FC177291CCF6B0010026F /* Structs.swift */,
 				CD0FC160291C6F620010026F /* ToDue */,
 				CD0FC15F291C6F620010026F /* Products */,
 			);
@@ -66,11 +73,16 @@
 				CD0FC161291C6F620010026F /* AppDelegate.swift */,
 				CD0FC163291C6F620010026F /* SceneDelegate.swift */,
 				CD0FC165291C6F620010026F /* ViewController.swift */,
-				CD0FC17B291D73350010026F /* EventCollectionViewCell.swift */,
-				CD0FC167291C6F620010026F /* Main.storyboard */,
+				04A40ACE2921E80400EC0E23 /* CustomTableViewCell.swift */,
+				04A40ACF2921E80400EC0E23 /* CustomTableViewCell.xib */,
+				04A40AD42921F2BC00EC0E23 /* RadioButton.swift */,
 				CD0FC17D291D76FA0010026F /* DisplayView.swift */,
-				CD0FC16A291C6F630010026F /* Assets.xcassets */,
+				04A40AD22921F0F600EC0E23 /* DetailViewController.swift */,
+				04A40AD829232A3500EC0E23 /* Utilities.swift */,
+				CD0FC177291CCF6B0010026F /* Structs.swift */,
+				CD0FC167291C6F620010026F /* Main.storyboard */,
 				CD0FC16C291C6F630010026F /* LaunchScreen.storyboard */,
+				CD0FC16A291C6F630010026F /* Assets.xcassets */,
 				CD0FC16F291C6F630010026F /* Info.plist */,
 			);
 			path = ToDue;
@@ -136,6 +148,7 @@
 			files = (
 				CD0FC16E291C6F630010026F /* LaunchScreen.storyboard in Resources */,
 				CD0FC16B291C6F630010026F /* Assets.xcassets in Resources */,
+				04A40AD12921E80400EC0E23 /* CustomTableViewCell.xib in Resources */,
 				CD0FC169291C6F620010026F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,12 +160,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD0FC17C291D73350010026F /* EventCollectionViewCell.swift in Sources */,
+				04A40AD02921E80400EC0E23 /* CustomTableViewCell.swift in Sources */,
 				CD0FC17E291D76FA0010026F /* DisplayView.swift in Sources */,
 				CD0FC166291C6F620010026F /* ViewController.swift in Sources */,
 				CD0FC162291C6F620010026F /* AppDelegate.swift in Sources */,
 				CD0FC178291CCF6B0010026F /* Structs.swift in Sources */,
 				CD0FC164291C6F620010026F /* SceneDelegate.swift in Sources */,
+				04A40AD929232A3500EC0E23 /* Utilities.swift in Sources */,
+				04A40AD32921F0F600EC0E23 /* DetailViewController.swift in Sources */,
+				04A40AD52921F2BC00EC0E23 /* RadioButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

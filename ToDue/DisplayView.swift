@@ -8,13 +8,6 @@
 
 import UIKit
 
-
-// Yiding: We should modify DisplayView class to make it
-//         Display remainning time like Gradescope
-// Currently no change 11/10 3:00pm
-
-
-
 /// A view for displaying a quantitative value. Set the `value` property to update the view.
 /// To animate changes, call the `animateValue` method.
 class DisplayView: UIView {
@@ -43,7 +36,8 @@ class DisplayView: UIView {
         var widthFraction = self.modelValue
         if widthFraction < 0 { widthFraction = 0 }
         if widthFraction > 1 { widthFraction = 1 }
-        return CGRect(x: 0, y: 0, width: widthFraction * self.bounds.width, height: self.bounds.height)
+        let startX = (1 - widthFraction) * self.bounds.width // let colored part on the right side
+        return CGRect(x: startX, y: 0, width: widthFraction * self.bounds.width, height: self.bounds.height)
     }
     
     override init(frame: CGRect) {
@@ -58,7 +52,9 @@ class DisplayView: UIView {
     
     private func setup() {
         self.backgroundColor = UIColor(white: 0.9, alpha: 1)
+        self.layer.cornerRadius = 5
         self.valueView.backgroundColor = color
+        self.valueView.layer.cornerRadius = 5
         self.addSubview(self.valueView)
     }
     

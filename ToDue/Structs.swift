@@ -13,10 +13,20 @@ import Foundation
 // time remaing. Maybe we can use some API like Date(),
 // DateComponents() or DateFormatter()...
 
-struct event {
+struct Event: Codable {
     var year: Int
     var month: Int
     var day: Int
-    var weekDay: String
+    var hour: Int
+    var minute: Int
+    var weekday: Int
     var title: String
+    var description: String
+    var location: String
+    var isComplete: Bool
+    var createDate: Date // Use to calculate time bar value
+}
+
+enum Weekday: Int {
+    case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
