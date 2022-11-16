@@ -80,6 +80,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.timeLabel.text = setTimeLabel(event: theData[indexPath.row])
             let timeProperties = setTimeProperties(event: theData[indexPath.row])
             cell.timeRemainLabel.text = timeProperties.label
+            cell.timeLabel.backgroundColor = timeProperties.color
             cell.timeBar.color = timeProperties.color
             cell.timeBar.value = timeProperties.value
             cell.delegate = self
