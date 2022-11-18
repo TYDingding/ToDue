@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
         
@@ -32,6 +33,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.registerTableViewCells()
         
         UserDefaults.standard.removeObject(forKey: "events")
+        UserDefaults.standard.removeObject(forKey: "events_id")
         if UserDefaults.standard.data(forKey: "events") == nil {
             let encoder = JSONEncoder()
             UserDefaults.standard.set(try? encoder.encode(self.theData), forKey: "events")
@@ -58,6 +60,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                     UserDefaults.standard.set(encoded, forKey: "events")
                     self.tableView.deleteRows(at: [indexPath], with: .fade)
                 }
+                
+                removeEventFromCalendar(indexPathRow: indexPath.row)
             }
         }
     }
@@ -169,6 +173,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 detailVC.isComplete = cell.radioButton.isSelected
                 detailVC.createDate = event.createDate
             }
+        }
+    }
+    
+    func removeEventFromCalendar(indexPathRow: Int){
+        if var events_id = UserDefaults.standard.object(forKey: "events_id") as? [String]{
+            
+            let eventStore : EKEventStore = EKEventStore()
+            eventStore.requestAccess(to: .event) { (granted, error) in
+              
+              if (granted) && (error == nil) {
+                  let event_id = events_id[indexPathRow]
+                  print("Event_id in remove: \(event_id)")
+                  if let cal_event = eventStore.event(withIdentifier: event_id){
+                      do {
+                          
+                          try eventStore.remove(cal_event, span: .thisEvent, commit: true)
+                          events_id.remove(at: indexPathRow)
+                          UserDefaults.standard.set(events_id, forKey: "events_id")
+                          
+                      } catch let error as NSError {
+                          print("failed to remove event with error : \(error)")
+                      }
+                  }else{
+                      print("Cannot find event: \(event_id)")
+                  }
+              }else{
+                  print("failed to remove event with error : \(error!) or access not granted")
+              }
+                
+            }
+        }else{
+            print("In remove: no events_id")
         }
     }
 }

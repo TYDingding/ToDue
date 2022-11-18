@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import EventKit
 
 class DetailViewController: UIViewController {
     
@@ -105,9 +106,13 @@ class DetailViewController: UIViewController {
                     // access detail view by add button/existing cell
                     if (isNew) {
                         events2.append(event)
+                        
+                        // Add new event to calendar
+                        addEventToCalendar(event: event)
                     }
                     else {
                         events2[self.tag] = event
+                        editCalendarEvent(event: event)
                     }
                     let encoder = JSONEncoder()
                     if let encoded = try? encoder.encode(events2) {
@@ -127,5 +132,83 @@ class DetailViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    // Reference: https://medium.com/swift-productions/add-an-event-to-the-calendar-xcode-12-swift-5-3-35b8bf149859
+    // Add an event to system calendar
+    func addEventToCalendar(event: Event){
+        let eventStore : EKEventStore = EKEventStore()
+        eventStore.requestAccess(to: .event) { (granted, error) in
+          
+          if (granted) && (error == nil) {
+
+              let cal_event:EKEvent = EKEvent(eventStore: eventStore)
+              let date = getDateFromEvent(event: event)
+              
+              cal_event.title = event.title
+              cal_event.startDate = date
+              cal_event.endDate = date
+              cal_event.notes = event.description
+              cal_event.calendar = eventStore.defaultCalendarForNewEvents
+              do {
+                  try eventStore.save(cal_event, span: .thisEvent)
+                  
+                  // Store events_id for future edit/delete
+                  if var events_id = UserDefaults.standard.object(forKey: "events_id") as? [String]{
+                      events_id.append(cal_event.eventIdentifier)
+                      print("Event_id in add: \(String(describing: cal_event.eventIdentifier))")
+                      UserDefaults.standard.set(events_id, forKey: "events_id")
+                  }else{
+                      let array:[String] = [cal_event.eventIdentifier]
+                      UserDefaults.standard.set(array, forKey: "events_id")
+                      print("Set new events_id")
+                  }
+                  
+              } catch let error as NSError {
+                  print("failed to save event with error : \(error)")
+              }
+              print("Saved Event")
+          }
+          else{
+          
+              print("failed to save event with error : \(error!) or access not granted")
+          }
+        }
+    }
+    
+    
+    func editCalendarEvent(event: Event){
+        if let events_id = UserDefaults.standard.object(forKey: "events_id") as? [String]{
+            
+            let eventStore : EKEventStore = EKEventStore()
+            eventStore.requestAccess(to: .event) { (granted, error) in
+              
+              if (granted) && (error == nil) {
+                  let event_id = events_id[self.tag]
+                  print("Event_id in edit: \(event_id)")
+                  if let cal_event = eventStore.event(withIdentifier: event_id){
+                      let date = getDateFromEvent(event: event)
+                      
+                      cal_event.title = event.title
+                      cal_event.startDate = date
+                      cal_event.endDate = date
+                      cal_event.notes = event.description
+                      do {
+                          try eventStore.save(cal_event, span: .thisEvent, commit: true)
+                      } catch let error as NSError {
+                          print("failed to save changed event with error : \(error)")
+                      }
+                  }else{
+                      print("Cannot find event: \(event_id)")
+                  }
+              }else{
+                  print("failed to save event with error : \(error!) or access not granted")
+              }
+                
+            }
+        }else{
+            print("In edit: no events_id")
+        }
+    }
 
 }
