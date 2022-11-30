@@ -9,17 +9,33 @@ import UIKit
 import EventKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-        
+    var showOnlyHighPriorityEvents: Bool = false;
     @IBOutlet weak var tableView: UITableView!
-
+    @IBOutlet weak var togglePriorityButton: UIButton!
+    
+    @IBAction func toggleShowPriority(_ sender: Any) {
+        self.showOnlyHighPriorityEvents = !self.showOnlyHighPriorityEvents
+        self.syncPriorityButton()
+        self.tableView.reloadData()
+        
+    }
+    func syncPriorityButton(){
+        if(self.showOnlyHighPriorityEvents){
+            self.togglePriorityButton.setTitle("Show all", for: .normal)
+        }else{
+            self.togglePriorityButton.setTitle("Show high", for: .normal)
+        }
+    }
+    
     var theData:[Event] = []
-
     override func viewWillAppear(_ animated: Bool) {
+        self.syncPriorityButton()
         if let data = UserDefaults.standard.data(forKey: "events"){
             let decoder = JSONDecoder()
             if let decoded = try? decoder.decode([Event].self, from: data) {
                 self.theData = decoded
                 self.tableView.reloadData()
+                
             }
         }
     }
@@ -31,13 +47,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         self.registerTableViewCells()
-        
+        /*
         UserDefaults.standard.removeObject(forKey: "events")
         UserDefaults.standard.removeObject(forKey: "events_id")
         if UserDefaults.standard.data(forKey: "events") == nil {
             let encoder = JSONEncoder()
             UserDefaults.standard.set(try? encoder.encode(self.theData), forKey: "events")
-        }
+        }*/
     }
 
     // Show detail view with empty contents
@@ -78,6 +94,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "CustomTableViewCell", for: indexPath) as? CustomTableViewCell {
+            let priority = theData[indexPath.row].priority
+            cell.priorityLabel.text = "Priority: "+priority
+            if(priority == highConst){
+                cell.priorityLabel.textColor = UIColor.red
+            }else if(priority == mediumConst){
+                cell.priorityLabel.textColor = UIColor.orange
+            }else{
+                cell.priorityLabel.textColor = UIColor.green
+            }
+            if(priority != highConst && self.showOnlyHighPriorityEvents){
+                return UITableViewCell()
+            }
             cell.radioButton.isSelected = theData[indexPath.row].isComplete
             cell.titleLabel.text = theData[indexPath.row].title
             cell.locationLabel.text = theData[indexPath.row].location
@@ -89,6 +117,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.timeBar.value = timeProperties.value
             cell.delegate = self
             cell.radioButton.tag = indexPath.row
+            
+            
+            
             return cell
         }
         return UITableViewCell()

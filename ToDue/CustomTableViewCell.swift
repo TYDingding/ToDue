@@ -21,6 +21,7 @@ class CustomTableViewCell: UITableViewCell{
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var timeRemainLabel: UILabel!
     @IBOutlet weak var timeBar: DisplayView!
+    @IBOutlet weak var priorityLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

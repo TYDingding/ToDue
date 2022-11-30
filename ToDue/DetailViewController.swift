@@ -15,9 +15,11 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationField: UITextField!
     @IBOutlet weak var desciptionField: UITextField!
     
+    @IBOutlet weak var priorityButton: UIButton!
     var titleText: String = ""
     var locationText: String = ""
     var descriptionText: String = ""
+    var priority: String = "High"
     var isComplete: Bool = false
     var year: Int = 0
     var month: Int = 0
@@ -42,7 +44,25 @@ class DetailViewController: UIViewController {
         titleField.text = titleText
         locationField.text = locationText
         desciptionField.text = descriptionText
-        
+        let highItem = UIAction(title: highConst) { (action) in
+            
+            self.priority = highConst;
+            self.priorityButton.setTitle(highConst, for: .normal)
+       }
+        let mediumItem = UIAction(title: mediumConst) { (action) in
+            
+            self.priority = mediumConst;
+            self.priorityButton.setTitle(mediumConst, for: .normal)
+       }
+        let lowItem = UIAction(title: lowConst) { (action) in
+            
+            self.priority = lowConst;
+            self.priorityButton.setTitle(lowConst, for: .normal)
+       }
+        let menu = UIMenu(title: "Select", options: .displayInline, children: [highItem , mediumItem , lowItem])
+        priorityButton.menu = menu
+        priorityButton.showsMenuAsPrimaryAction = true
+        self.priorityButton.setTitle(self.priority, for: .normal)
     }
     
     
@@ -95,7 +115,7 @@ class DetailViewController: UIViewController {
                               weekday: self.weekday,
                               title: self.titleText,
                               description: self.descriptionText,
-                              location: self.locationText,
+                              location: self.locationText, priority: self.priority,
                               isComplete: self.isComplete,
                               createDate: self.createDate)
             

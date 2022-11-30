@@ -36,33 +36,39 @@
                                 <rect key="frame" x="44" y="5" width="246" height="80"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HEv-XX-sOx">
-                                        <rect key="frame" x="0.0" y="0.0" width="246" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="246" height="32"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="77p-5n-V7d">
-                                                <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="207.33333333333334" height="32"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="inx-6y-M14">
-                                                        <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="27"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="41.666666666666664" height="18.666666666666668"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7PX-8i-3t2">
-                                                        <rect key="frame" x="0.0" y="27" width="67" height="23"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                        <rect key="frame" x="0.0" y="18.666666666666668" width="57" height="13.333333333333332"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
                                                         <color key="textColor" systemColor="secondaryLabelColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntG-Mk-ScF">
-                                                <rect key="frame" x="207.33333333333331" y="0.0" width="38.666666666666657" height="50"/>
+                                                <rect key="frame" x="207.33333333333331" y="0.0" width="38.666666666666657" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Priority" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mAI-BL-SQK">
+                                        <rect key="frame" x="0.0" y="32" width="49" height="18"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYZ-sq-gRQ" userLabel="TimeRemain">
                                         <rect key="frame" x="0.0" y="50" width="246" height="20"/>
                                         <constraints>
@@ -103,6 +109,7 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="locationLabel" destination="7PX-8i-3t2" id="f9O-bO-ALY"/>
+                <outlet property="priorityLabel" destination="mAI-BL-SQK" id="VOe-m7-RHd"/>
                 <outlet property="radioButton" destination="maC-Jc-agt" id="dd3-uR-h9j"/>
                 <outlet property="timeBar" destination="aOY-ht-Kkr" id="EFh-64-hmc"/>
                 <outlet property="timeLabel" destination="ntG-Mk-ScF" id="qq8-Sn-xeQ"/>

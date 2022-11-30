@@ -23,6 +23,7 @@ struct Event: Codable {
     var title: String
     var description: String
     var location: String
+    var priority: String
     var isComplete: Bool
     var createDate: Date // Use to calculate time bar value
 }
@@ -30,3 +31,10 @@ struct Event: Codable {
 enum Weekday: Int {
     case Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday
 }
+
+let highConst : String = "High"
+let mediumConst : String = "Medium"
+let lowConst : String = "Low"
+let eventUserDefultKey = "events"
+
+
