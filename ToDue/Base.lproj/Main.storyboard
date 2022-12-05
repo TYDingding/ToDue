@@ -26,16 +26,10 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Reminders" id="uxa-6F-Dgd">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Bo8-xf-93H">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="S5z-RK-1ou">
-                                <rect key="frame" x="16" y="5" width="86" height="34.333333333333336"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
-                                <connections>
-                                    <action selector="toggleShowPriority:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2fD-a7-jXk"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Show high" id="cCc-No-LQD">
+                            <connections>
+                                <action selector="toggleShowPriority:" destination="BYZ-38-t0r" id="psR-hq-ddX"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jJk-1t-4RU">
                             <connections>
@@ -45,7 +39,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VlK-B8-Qu6" id="pd8-4O-Hh7"/>
-                        <outlet property="togglePriorityButton" destination="S5z-RK-1ou" id="eGV-Dv-Ez3"/>
+                        <outlet property="togglePriorityButton" destination="cCc-No-LQD" id="TlZ-XV-YlF"/>
                         <segue destination="Cgs-Ia-KVB" kind="show" identifier="showEventDetail" id="Mh2-XT-yWj"/>
                     </connections>
                 </viewController>

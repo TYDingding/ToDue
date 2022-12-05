@@ -11,7 +11,8 @@ import EventKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     var showOnlyHighPriorityEvents: Bool = false;
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var togglePriorityButton: UIButton!
+    @IBOutlet weak var togglePriorityButton: UIBarButtonItem!
+    
     
     @IBAction func toggleShowPriority(_ sender: Any) {
         self.showOnlyHighPriorityEvents = !self.showOnlyHighPriorityEvents
@@ -21,9 +22,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     func syncPriorityButton(){
         if(self.showOnlyHighPriorityEvents){
-            self.togglePriorityButton.setTitle("Show all", for: .normal)
+            self.togglePriorityButton.title = "Show all"
         }else{
-            self.togglePriorityButton.setTitle("Show high", for: .normal)
+            self.togglePriorityButton.title = "Show high"
         }
     }
     
