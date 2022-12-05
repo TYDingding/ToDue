@@ -48,10 +48,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
         tableView.delegate = self
         self.registerTableViewCells()
-        /*
-        UserDefaults.standard.removeObject(forKey: "events")
-        UserDefaults.standard.removeObject(forKey: "events_id")
-        */
+        
+//        UserDefaults.standard.removeObject(forKey: "events")
+//        UserDefaults.standard.removeObject(forKey: "events_id")
+        
          if UserDefaults.standard.data(forKey: "events") == nil {
             let encoder = JSONEncoder()
             UserDefaults.standard.set(try? encoder.encode(self.theData), forKey: "events")
@@ -77,6 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 if let encoded = try? encoder.encode(theData) {
                     UserDefaults.standard.set(encoded, forKey: "events")
                     self.tableView.deleteRows(at: [indexPath], with: .fade)
+                    self.tableView.reloadData()
                 }
                 
                 removeEventFromCalendar(indexPathRow: indexPath.row)
@@ -119,7 +120,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             cell.timeBar.value = timeProperties.value
             cell.delegate = self
             cell.radioButton.tag = indexPath.row
-            
             
             
             return cell
