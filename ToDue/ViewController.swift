@@ -126,6 +126,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return UITableViewCell()
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            let priority = theData[indexPath.row].priority
+            if (priority != highConst && self.showOnlyHighPriorityEvents) {
+                return 0
+            }
+            return self.tableView.rowHeight
+        }
+    
     func setTimeLabel(event: Event) -> String {
         if (event.minute < 10) {
             return "\(event.hour):0\(event.minute)"
