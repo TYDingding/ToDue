@@ -50,10 +50,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         /*
         UserDefaults.standard.removeObject(forKey: "events")
         UserDefaults.standard.removeObject(forKey: "events_id")
-        if UserDefaults.standard.data(forKey: "events") == nil {
+        */
+         if UserDefaults.standard.data(forKey: "events") == nil {
             let encoder = JSONEncoder()
             UserDefaults.standard.set(try? encoder.encode(self.theData), forKey: "events")
-        }*/
+        }
     }
 
     // Show detail view with empty contents
