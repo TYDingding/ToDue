@@ -1,1 +1,22 @@
 # ToDue
+
+by Dylan Pardo, Huilin Ou, Mavis Hou, Wesley Yin and Yiding Tao
+
+Utility:
+This app builds upon the functionality of existing productivity apps, with features our group believes would improve our own productivity.
+
+Functionality:
+- Users can create, edit, and delete Todues with the following Data:
+    - Title
+    - Date/Time
+    - Priority Level
+    - Location
+    - Description
+- Users can see visual representation of the time left on a Todue through the progress bar
+    - Similar to Gradescope
+- Users can mark a Todue as complete
+- Users can filter their displayed Todue list for only high priority Todues
+- User's current Todues show up in Apple calendars
+    - Edits or deletes to Todues show up in the calendar (calendar is always synced with state of Todues in app)
+- Todues persist across runs of the app (using UserDefaults to store)
+
